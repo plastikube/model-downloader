@@ -10,10 +10,10 @@ RUN set -exu \
     wget \
     jq \
     yq-go \
-  && mkdir -pv /data \
-  && chown 1000:1000 /data
+  && mkdir -pv /models \
+  && chown 1000:1000 /models
 
-WORKDIR /data
+WORKDIR /models
 
 RUN set -exu \
   && addgroup \
@@ -22,7 +22,7 @@ RUN set -exu \
   && adduser \
     --disabled-password \
     --gecos "" \
-    --home /data \
+    --home /models \
     --ingroup downloader \
     --no-create-home \
     --uid 1000 \
